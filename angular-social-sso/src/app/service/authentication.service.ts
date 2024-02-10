@@ -89,6 +89,7 @@ export class AuthenticationService {
   }
 
   private redirectToTargetRequestUri(targetRequestedUri?: string | null): void {
+    debugger
     const targetUri = targetRequestedUri && targetRequestedUri.length > 0 ? targetRequestedUri : '/'
     this.router.navigate([targetUri]);
   }

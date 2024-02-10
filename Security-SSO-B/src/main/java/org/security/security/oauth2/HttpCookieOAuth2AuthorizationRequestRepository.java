@@ -8,11 +8,12 @@ import org.springframework.security.oauth2.client.web.AuthorizationRequestReposi
 import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
 import org.springframework.stereotype.Component;
 
+import static org.security.security.oauth2.common.OAuth2Util.OAUTH2_AUTHORIZATION_REQUEST_COOKIE_NAME;
+import static org.security.security.oauth2.common.OAuth2Util.REDIRECT_URI_PARAM_COOKIE_NAME;
+
 @Component
 public class HttpCookieOAuth2AuthorizationRequestRepository implements AuthorizationRequestRepository<OAuth2AuthorizationRequest> {
 
-    public static final String OAUTH2_AUTHORIZATION_REQUEST_COOKIE_NAME = "oauth2_auth_request";
-    public static final String REDIRECT_URI_PARAM_COOKIE_NAME = "redirect_uri";
     private static final int cookieExpireSeconds = 180;
 
     @Override

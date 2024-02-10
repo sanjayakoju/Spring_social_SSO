@@ -7,8 +7,8 @@ export const CURRENT_WINDOW_URL = window.location.protocol + '//' + window.locat
 
 
 const API_ENDPOINT = environment.apiUrl;
-const REDIRECT_URL = '/oauth/redirect'
-const OAUTH2_UI_REDIRECT_URI = QueryParamKey.REDIRECT_URI + '=' + CURRENT_WINDOW_URL + REDIRECT_URL
+const REDIRECT_URL = '/oauth2/redirect'
+const OAUTH2_UI_REDIRECT_URI = QueryParamKey.REDIRECT_URI + '=' + CURRENT_WINDOW_URL + '/login'
 // API Endpoints
 export class ApiEndpoints {
 

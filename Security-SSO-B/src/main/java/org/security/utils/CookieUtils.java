@@ -10,6 +10,7 @@ import java.util.Optional;
 
 public class CookieUtils {
 
+    // Fetches a cookie from the request
     public static Optional<Cookie> getCookie(HttpServletRequest request, String name) {
         Cookie[] cookies = request.getCookies();
 

@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/spring_social?createDatabaseIfNotExist=true
-    username: root
-    password: Root@1234
+    username: {DB_USERNAME:root}
+    password: {DB_PASSWORD:Root@1234}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -18,23 +18,23 @@ spring:
       client:
         registration:
           google:
-            clientId: 1013150799375-v6mltak8dgcsrci1femg563l3s24pqus.apps.googleusercontent.com
-            clientSecret: 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
+            clientId: {GOOGLE_CLIENT_ID}
+            clientSecret: {GOOGLE_CLIENT_SECRET}
             redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
 #            redirectUri: "http://localhost:3000/oauth2/redirect"
             scope:
               - email
               - profile
           facebook:
-            clientId: 121189305185277
-            clientSecret: 42ffe5aa7379e8326387e0fe16f34132
+            clientId: {FACEBOOK_CLIENT_ID}
+            clientSecret: {FACEBOOK_CLIENT_SECRET}
             redirectUri: "{baseUrl}/oauth2/callback/{registrationId}" # Note that facebook now mandates the use of https redirect URIs, so make sure your app supports https in production
             scope:
               - email
               - public_profile
           github:
-            clientId: d3e47fc2ddd966fa4352
-            clientSecret: 3bc0f6b8332f93076354c2a5bada2f5a05aea60d
+            clientId: {GITHUB_CLIENT_ID}
+            clientSecret: {GITHUB_CLIENT_SECRET}
             redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
             scope:
               - user:email
@@ -46,7 +46,7 @@ spring:
             userInfoUri: https://graph.facebook.com/v3.0/me?fields=id,first_name,middle_name,last_name,name,email,verified,is_verified,picture.width(250).height(250)
 app:
   auth:
-    tokenSecret: 04ca023b39512e46d0c2cf4b48d5aac61d34302994c87ed4eff225dcf3b0a218739f3897051a057f9b846a69ea2927a587044164b7bae5e1306219d50b588cb1
+    tokenSecret: {MY_SECRET_KEY}
     tokenExpirationMsec: 864000000
   cors:
     allowedOrigins: http://localhost:3000, http://localhost:4200, http://localhost:8080 # Comma separated list of allowed origins

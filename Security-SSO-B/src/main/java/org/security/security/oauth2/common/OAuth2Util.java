@@ -2,6 +2,7 @@ package org.security.security.oauth2.common;
 
 import org.security.security.oauth2.user.FacebookOAuth2UserInfo;
 import org.security.security.oauth2.user.GithubOAuth2UserInfo;
+import org.security.security.oauth2.user.GoogleOAuth2UserInfo;
 import org.security.security.oauth2.user.OAuth2UserInfo;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
 
@@ -22,7 +23,7 @@ public class OAuth2Util {
     public static OAuth2UserInfo getOAuth2UserInfo(String registrationId,
                                                    Map<String, Object> attributes) {
         if (registrationId.equalsIgnoreCase(SecurityEnums.AuthProviderId.google.toString())) {
-            return new GithubOAuth2UserInfo(attributes);
+            return new GoogleOAuth2UserInfo(attributes);
         } else if (registrationId.equalsIgnoreCase(SecurityEnums.AuthProviderId.facebook.toString())) {
             return new FacebookOAuth2UserInfo(attributes);
         } else if (registrationId.equalsIgnoreCase(SecurityEnums.AuthProviderId.github.toString())) {

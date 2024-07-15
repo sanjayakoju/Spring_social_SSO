@@ -20,7 +20,6 @@ export class AuthenticationService {
               private credentialService: CredentialService) { }
 
   onOAuth2ButtonClick(oauth2Provider: any, routeQueryParams: any) {
-    debugger
     console.log('appending routeQueryParams', routeQueryParams);
     const queryString = Object.entries(routeQueryParams)
       .map(entry => entry.join('='))
@@ -51,7 +50,6 @@ export class AuthenticationService {
   }
 
   public processAuthQueryParams(allowAuthRedirection: boolean = true): Observable<Params> {
-    debugger
     const processedQueryParamsObservable: Observable<Params> = this.route.queryParams
       .pipe(
         filter((params: Params) => params && Object.keys(params).length > 0),
@@ -79,7 +77,6 @@ export class AuthenticationService {
       token: jwtToken,
       jwtTokenPayload: tokenPayload
     };
-    debugger
     this.credentialService.setCredentials(credentialsData, false);
     if (redirectToOriginalUri) {
       const originalRequestedUri = resParamMap.get(QueryParamKey.ORIGINAL_REQUEST_URI)
@@ -91,7 +88,8 @@ export class AuthenticationService {
   private redirectToTargetRequestUri(targetRequestedUri?: string | null): void {
     debugger
     const targetUri = targetRequestedUri && targetRequestedUri.length > 0 ? targetRequestedUri : '/'
-    this.router.navigate([targetUri]);
+    console.log('Target URI ', targetUri)
+    this.router.navigate(['/profile']);
   }
 
   // OPTIONAL: Parsing JWT Token to obtain extra-data

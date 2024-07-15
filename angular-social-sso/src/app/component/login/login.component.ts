@@ -65,6 +65,7 @@ export class LoginComponent implements OnInit {
   }
 
   populateParamResponseMessage(paramMap: ParamMap, paramKey: string, isErrorType: boolean = false) {
+    debugger
     if (paramMap.has(paramKey)) {
       const infoMsg = paramMap.get(paramKey);
       this.hasError = isErrorType ? true : false;
